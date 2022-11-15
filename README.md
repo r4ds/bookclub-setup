@@ -35,11 +35,18 @@ N.B. The call should open a browser tab after given you an identical output of t
 
  Opening URL 'https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=DESCRIBE THE TOKEN\'S USE CASE'
 
+<<<<<<< HEAD
 Log in your GitHub details in the opened browser.
 Set the token use case.
 Not sure what to type, you could type your name.
 
 Note: you could set the expiration of the token for as long as you want. e.g. 90 days
+=======
+log in your GitHub details in the opened browser.
+Set the token use case.
+Not sure what to type, you could type your name.
+Note: you could set the expiration of the token for as loong as you want. e.g. 90 days
+>>>>>>> 2bde56c90f3aebb86f009c2b625e8fc572a73981
 And then scroll down and click "Generate Token".
 
 Ensure you copy and keep (preferably, any password-management software you use) the generated token as you will need it for this call
@@ -72,6 +79,7 @@ An output of this nature should be observed:
 -> Done.
 Next: run `usethis::git_sitrep()`
 follow the error code after you run the above code. Most likely you might be required to vaccinate. 
+<<<<<<< HEAD
 
 Run this code `usethis::git_vaccinate()`
 NEXT: `usethis::edit_r_profile()`. That will open up your .Rprofile file in the RStudio editor. If you haven't done anything to it before, it might be empty.
@@ -80,6 +88,13 @@ We want to add this line:
 `options(usethis.destdir = "C:/Users/whatever/yourpath")`
 And then save the file.
 
+=======
+Run this code `usethis::git_vaccinate()`
+NEXT: `usethis::edit_r_profile()`. That will open up your .Rprofile file in the RStudio editor. If you haven't done anything to it before, it might be empty.
+We want to add this line:
+`options(usethis.destdir = "C:/Users/whatever/yourpath")`
+And then save the file.
+>>>>>>> 2bde56c90f3aebb86f009c2b625e8fc572a73981
 Once that's set, go to Session: Restart R (or ctrl-shift-f10) to start a new R session. 
 Type `getOption("usethis.destdir")` and make sure it shows the thing you set up
 
