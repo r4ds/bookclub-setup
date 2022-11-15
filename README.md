@@ -5,97 +5,37 @@ These instructions should help you get started.
 
 If you have questions about this process, ask in the [#help-zzz-github_open_ource](https://rfordatascience.slack.com/archives/CA349P7EC) channel on the [R4DS Online Learning Community Slack](https://r4ds.io/join).
 
-1.  Create a GitHub account.
+1.  [Create a GitHub account](https://github.com/signup).
 
-2.  Run this code to install {usethis} and {devtools} packages.
+2.  Install git. This is highly system dependent, so we recommend following the instructions in [Happy Git and GitHub for the useR](https://happygitwithr.com/install-git.html).
+
+3.  Install the {usethis} and {devtools} packages:
 `install.packages(c("usethis", "devtools"))`
 
-3. Next step is to run this `usethis::git_sitrep()` 
-It will help us figure out what you need to do to get ready. 
-Depending on what error code is returned, follow the instructions from the error code. 
-E.g.
-Below is an example of an output after running the above code (the instruction to follow is italicized):
+4.  `library(usethis)`.
 
+5.  Run `usethis::git_sitrep()` to see what steps you need to do. Read the errors and warnings carefully, and follow the instructions provided. We'll continue with instructions that work if you've never set up GitHub in RStudio before, or if you've set it up incorrect (eg, you get the error "Token lacks recommended scopes").
 
-Token lacks recommended scopes:
-- 'user:email': needed to read user's email addresses
-  *Consider re-creating your PAT with the missing scopes.*
-  `create_github_token()` defaults to the recommended scopes.
-Can't retrieve registered email addresses from GitHub.
-  Consider re-creating your PAT with the 'user' or at least 'user:email' scope.
-Git repo for current project
-No active usethis project
+6.  As recommended, run `usethis::create_github_token(description = "rstudio")` (the `description` argument can be whatever you want, just something to remember what you use that token for). The call should open a browser tab on which you can create a token with the recommended settings. You may have to login to GitHub to get to the expected page. Set the expiration of the token to whatever makes sense for you (ie, balance security vs how often you'll have to repeat this step).
 
-**If the above was the error code then call:**
-`create_github_token()`
-N.B. The call should open a browser tab after given you an identical output of the nature below.
+7.  Click "Generate token" (green button at the bottom of that page).
 
-• Call `gitcreds::gitcreds_set()` to register this token in the local Git credential store
-  (It is also a great idea to store this token in any password-management software that you use)
+8.  Be sure to **copy** the token. It should look something like this: `ghp_ABunchOfLettersAndNumbers`. You must copy it right now, you won't get another chance (but you can always delete the token and try again if you make a mistake).
 
- Opening URL 'https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=DESCRIBE THE TOKEN\'S USE CASE'
+9.  Call `gitcreds::gitcreds_set()` to register this token in the local Git credential store. If you already have a token stored, you'll be asked if you want to keep, replace, or see those credentials. Choose "Replace these credentials".
 
-<<<<<<< HEAD
-Log in your GitHub details in the opened browser.
-Set the token use case.
-Not sure what to type, you could type your name.
+10. Paste the token you copied above when asked for a token or password.
 
-Note: you could set the expiration of the token for as long as you want. e.g. 90 days
-=======
-log in your GitHub details in the opened browser.
-Set the token use case.
-Not sure what to type, you could type your name.
-Note: you could set the expiration of the token for as loong as you want. e.g. 90 days
->>>>>>> 2bde56c90f3aebb86f009c2b625e8fc572a73981
-And then scroll down and click "Generate Token".
+11. Re-run `usethis::git_sitrep()`. If you have any more errors, resolve them as suggested by that call. We'll continue with the most likely situation. Re-run this each time you make a change, until it doesn't give any errors or warnings.
 
-Ensure you copy and keep (preferably, any password-management software you use) the generated token as you will need it for this call
-`gitcreds::gitcreds_set()` 
-N.B. using a local version of R makes things easier.
- 
-After the above steps, you should get the following output:
-What would you like to do?
--> Your current credentials for 'https://github.com':
-  protocol: https
-  
-  host    : github.com
-  
-  username: ***********
-  
-  password: <-- hidden -->
+12. Call `usethis::git_vaccinate()`. This function "vaccinates" your system against common git safety issues, such as accidentally sharing passwords.
 
-1: Keep these credentials
+13. (optional) Set up a default {usethis} directory:
+  - `usethis::edit_r_profile()` to open your profile for editing.
+  - Add this line: options(usethis.destdir = "YOURDIR") (replace YOURDIR with the root directory under which you want your R projects to appear).
+  - Restart your R session (Session/Restart R in Rstudio).
+  - Run `getOption("usethis.destdir")` to make sure it shows what you expect.
 
-2: Replace these credentials
+14. When you work on a book club or other project, use `usethis::create_from_github()` to set up a new RStudio project. For example, `usethis::create_from_github("r4ds/bookclub-setup")` creates an RStudio project for this repository.
 
-3: See the password / token
-
-The above output is likely for those who had their setup properly configured.
-Select 2. insert the generated token that you copied and safekept from the browser earlier. 
-
-An output of this nature should be observed:
--> Adding new credentials...
--> Removing credentials from cache...
--> Done.
-Next: run `usethis::git_sitrep()`
-follow the error code after you run the above code. Most likely you might be required to vaccinate. 
-<<<<<<< HEAD
-
-Run this code `usethis::git_vaccinate()`
-NEXT: `usethis::edit_r_profile()`. That will open up your .Rprofile file in the RStudio editor. If you haven't done anything to it before, it might be empty.
-
-We want to add this line:
-`options(usethis.destdir = "C:/Users/whatever/yourpath")`
-And then save the file.
-
-=======
-Run this code `usethis::git_vaccinate()`
-NEXT: `usethis::edit_r_profile()`. That will open up your .Rprofile file in the RStudio editor. If you haven't done anything to it before, it might be empty.
-We want to add this line:
-`options(usethis.destdir = "C:/Users/whatever/yourpath")`
-And then save the file.
->>>>>>> 2bde56c90f3aebb86f009c2b625e8fc572a73981
-Once that's set, go to Session: Restart R (or ctrl-shift-f10) to start a new R session. 
-Type `getOption("usethis.destdir")` and make sure it shows the thing you set up
-
-Voila!!!
+We recommend using the [{usethis} pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html) for all work on R4DS repositories. Please reach out for help if you have any questions!
