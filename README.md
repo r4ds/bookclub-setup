@@ -1,9 +1,9 @@
-# Setting Up for R4DS Online Learning Community Book Clubs
+# Setting Up for Data Science Learning Community Book Clubs
 
-To update the shared slides for R4DS Online Learning Community book clubs (or to participate in other open source projects), you need to set up GitHub.
+To update the shared slides for Data Science Learning Community book clubs (or to participate in other open source projects), you need to set up GitHub.
 These instructions should help you get started.
 
-If you have questions about this process, ask in the [#help-zzz-github_open_ource](https://rfordatascience.slack.com/archives/CA349P7EC) channel on the [R4DS Online Learning Community Slack](https://r4ds.io/join).
+If you have questions about this process, ask in the [#help-zzz-github_open_ource](https://dslcio.slack.com/archives/CA349P7EC) channel on the [Data Science Learning Community Slack](https://dslc.io/join).
 
 1.  [Create a GitHub account](https://github.com/signup).
 
@@ -40,4 +40,4 @@ If you have questions about this process, ask in the [#help-zzz-github_open_ourc
 
 15. When you work on a book club or other project, use `usethis::create_from_github()` to set up a new RStudio project. For example, `usethis::create_from_github("r4ds/bookclub-setup")` creates an RStudio project for this repository.
 
-We recommend using the [{usethis} pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html) for all work on R4DS repositories. Please reach out for help if you have any questions!
+We recommend using the [{usethis} pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html) for all work on DSLC repositories. Please reach out for help if you have any questions!
