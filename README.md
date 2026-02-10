@@ -9,12 +9,12 @@ If you have questions about this process, ask in the [#help-zzz-github_open_ourc
 
 2.  Install git. This is highly system dependent, so we recommend following the instructions in [Happy Git and GitHub for the useR](https://happygitwithr.com/install-git.html).
 
-3.  Install the {usethis} and {devtools} packages:
-`install.packages(c("usethis", "devtools"))`
+3.  Install the {usethis} and {pak} packages:
+`install.packages(c("usethis", "pak"))`
 
 4.  `library(usethis)`.
 
-5.  Run `use_git_config(user.name = "Your Fullname", user.email = "your_email@yourplace.cool")`
+5.  Run `usethis::use_git_config(user.name = "Your Fullname", user.email = "your_email@yourplace.cool")`
 
 6.  Run `usethis::git_sitrep()` to see what steps you need to do. Read the errors and warnings carefully, and follow the instructions provided. We'll continue with instructions that work if you've never set up GitHub in RStudio before, or if you've set it up incorrect (eg, you get the error "Token lacks recommended scopes").
 
